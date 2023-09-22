@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Interview Questions</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: url("https://img.freepik.com/premium-photo/school-supplies-pens-notebook-blue-background-top-view-back-school-copy-space-ai_217690-88.jpg?w=360");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .all {
+
+      width: 75vw;
+      height: 80vh;
+      position: fixed;
+      overflow: auto;
+      text-align: justify;
+      margin-left: 10vh;
+      font-size: 18px;
+      font-family: system-ui;
+    }
+    p{
+      padding-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <center>
+    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 30;">JavaScript Questions</h1>
+  </center><br><br>
+  <div class="all">
+    <p>
+      1. Different datatypes in JavaScript?
+      Ans. (a) Primitive datatypes <br>
+
+      String - It represents a series of characters and is written with quotes. A string can be represented using a
+      single or a double quote. <br>
+
+      Example : <br>
+
+      var str = "Go to the park."; //using double quotes <br>
+      var str2 = 'G20 Summit'; //using single quotes <br>
+      Number - It represents a number and can be written with or without decimals. <br>
+      Example : <br>
+
+      var x = 6; //without decimal <br>
+      var y = 6.4; //with decimal <br>
+      BigInt - This data type is used to store numbers which are above the limitation of the Number data type. It can
+      store large integers and is represented by adding “n” to an integer literal. <br>
+      Example : <br>
+
+      var bigInteger = 234567890123456789012345678901234567890; <br>
+      Boolean - It represents a logical entity and can have only two values : true or false. Booleans are generally used
+      for conditional testing. <br>
+      Example : <br>
+
+      var a = 2; <br>
+      var b = 3; <br>
+      var c = 2; <br>
+      (a == b) // returns false <br>
+      (a == c) //returns true <br>
+      Undefined - When a variable is declared but not assigned, it has the value of undefined and its type is also
+      undefined. <br>
+      Example : <br>
+
+      var x; // value of x is undefined <br>
+      var y = undefined; // we can also set the value of a variable as undefined <br>
+      Null - It represents a non-existent or a invalid value. <br>
+      Example : <br>
+
+      var z = null; <br>
+      Symbol - It is a new data type introduced in the ES6 version of javascript. It is used to store an anonymous and
+      unique value. <br>
+      Example : <br>
+
+      var symbol1 = Symbol('symbol'); <br>
+      typeof of primitive types : <br>
+      typeof "John Doe" // Returns "string" <br>
+      typeof 3.14 // Returns "number" <br>
+      typeof true // Returns "boolean" <br>
+      typeof 234567890123456789012345678901234567890n // Returns bigint <br>
+      typeof undefined // Returns "undefined" <br>
+      typeof null // Returns "object" (kind of a bug in JavaScript) <br>
+      typeof Symbol('symbol') // Returns Symbol <br><br><br>
+      (b) Non-primitive types <br>
+
+      Primitive data types can store only a single value. To store multiple and complex values, non-primitive data types
+      are used. <br>
+      Object - Used to store collection of data. <br>
+      Example: <br>
+      // Collection of data in key-value pairs <br>
+
+      var obj1 = { <br>
+      x: 43, <br>
+      y: "Hello world!", <br>
+      z: function(){ <br>
+      return this.x; <br>
+      } <br>
+      } <br>
+
+      // Collection of data as an ordered list <br>
+      Array is also non-primitive datatype <br>
+      var array1 = [5, "Hello", true, 4.1]; <br><br><br>
+
+      2. Explain Hoisting in javascript <br>
+      Ans. Hoisting is the default behaviour of javascript where all the variable and function declarations are
+      moved on top. <br>
+      This means that irrespective of where the variables and functions are declared, they are moved on top of the
+      scope. <br>
+
+      Example 1:<br>
+
+      hoistedVariable = 3;<br>
+      console.log(hoistedVariable); // outputs 3 even when the variable is declared after it is initialized<br>
+      var hoistedVariable;<br>
+      Example 2:<br>
+
+      hoistedFunction(); // Outputs " Hello world! " even when the function is declared after calling<br>
+
+      function hoistedFunction(){ <br>
+      console.log(" Hello world! ");<br>
+      } <br>
+      Example 3:<br>
+
+      // Hoisting takes place in the local scope as well<br>
+      function doSomething(){<br>
+      x = 33;<br>
+      console.log(x);<br>
+      var x;<br>
+      } <br>
+      doSomething(); // Outputs 33 since the local variable “x” is hoisted inside the local scope<br>
+
+      ****Note - Variable initializations are not hoisted, only variable declarations are hoisted:<br>
+      var x;<br>
+      console.log(x); // Outputs "undefined" since the initialization of "x" is not hoisted<br>
+      x = 23;<br>
+      Note - To avoid hoisting, you can run javascript in strict mode by using “use strict” on top of the code:<br>
+      "use strict";<br>
+      x = 23; // Gives an error since 'x' is not declared<br>
+      var x;<br>
+      <br>
+      3. Why do we use the word “debugger” in javascript? <br>
+      Ans. The debugger for the browser must be activated in order to debug the code. Built-in debuggers may be
+      switched on and off, requiring the user to report faults. The remaining section of the code should stop execution
+      before moving on to the next line while debugging. <br>
+
+      4. Difference between “ == “ and “ === “ operators. <br>
+      Both are comparison operators. The difference between both the operators is that “==” is used to compare values
+      whereas, “ === “ is used to compare both values and types. <br>
+
+      Example: <br>
+
+      var x = 2; <br>
+      var y = "2"; <br>
+      (x == y) // Returns true since the value of both x and y is the same <br>
+      (x === y) // Returns false since the typeof x is "number" and typeof y is "string" <br>
+
+      5. Difference between var and let and const keyword in javascript. <br>
+      Ans. The keyword 'var' has a global scope. It can be accessed from anywhere in the code. But let and const
+      keywords have block scope. Both let and const can be accessed within a block of code like a function. They will
+      remain invalid outside that block. <br>
+      var can be redeclared or reassigned too. But let can be reassigned only. But const can be neither redeclared nor
+      reassigned. <br><br>
+      6. Is javascript a statically typed or a dynamically typed language? <br>
+      Ans. JavaScript is a dynamically typed language. In a dynamically typed language, the type of a variable is
+      checked
+      during run-time in contrast to a statically typed language, where the type of a variable is checked during
+      compile-time. So variables can change their datatype dynamically in dynamically typed language. But variables
+      cannot change their datatype in statically typed language. <br>
+      var a = 23; <br>
+      var a = "Hello World!"; <br><br><br>
+      7. What is NaN property in JavaScript? <br>
+      Ans. <br>
+      NaN represents the “Not-a-Number” value. typeof of NaN will return a Number.
+
+      To check if a value is NaN, we use the isNaN() function. <br>
+      isNaN("Hello") // Returns true <br>
+      isNaN(345) // Returns false <br>
+      isNaN('1') // Returns false, since '1' is converted to Number type which results in 0 ( a number) <br>
+      isNaN(true) // Returns false, since true converted to Number type results in 1 ( a number) <br>
+      isNaN(false) // Returns false <br>
+      isNaN(undefined) // Returns true <br><br><br>
+
+      8.What is an Immediately Invoked Function in JavaScript? <br>
+      Ans. <br>An Immediately Invoked Function ( known as IIFE and pronounced as IIFY) is a function that runs as soon
+      as it is defined. <br>
+
+      Syntax of IIFE : <br>
+
+      (function(){ <br>
+      // Do something; <br>
+      })(); <br>
+
+      The primary reason to use an IIFE is to obtain data privacy because any variables declared within the IIFE cannot
+      be accessed by the outside world. i.e, If you try to access variables with IIFE then it throws an error as
+      below,<br>
+      (function () { <br>
+      var message = "IIFE"; <br>
+      console.log(message); <br>
+      })(); <br>
+      console.log(message); //Error: message is not defined<br><br><br>
+      9.What is 'this' keyword?<br>
+      Ans. <br>
+      The 'this' keyword within a function refers to that object which contains that function. <br>
+      Example 1: <br>
+      var obj = { <br>
+      name: "Moshal", <br>
+      getName: function(){ <br>
+      console.log(this.name); <br>
+      } <br>
+      } <br>
+
+      obj.getName(); <br>
+      o/p <br>
+      "Moshal" <br>
+      Example 2: <br>
+      var obj = { <br>
+      name: "Moshal", <br>
+      getName: function(){ <br>
+      console.log(this.name); <br>
+      } <br>
+
+      } <br>
+
+      var getName = obj.getName; <br>
+
+      var obj2 = {name:"Koshal", getName }; <br>
+      obj2.getName(); <br>
+      o/p <br>
+      "Koshal" <br>
+      Although the getName function is declared inside the object obj, at the time of invocation, getName() is a
+      property of obj2, therefore the “this” keyword will refer to obj2. <br><br><br>
+      10.What are closures?<br>
+      Ans. <br>A closure is the combination of a function and the lexical environment within which that function was
+      declared. i.e, It is an inner function that has access to the outer or enclosing functions variables. The closure
+      has three scope chains - <br>
+
+      (a)Own scope where variables defined between its curly brackets <br>
+      (b)Outer functions variables <br>
+      (c)Global variables <br><br><br>
+
+      11.What are modules <br>
+      Ans. <br>Modules refer to small units of independent, reusable code and also act as the foundation of many
+      JavaScript design patterns. Most of the JavaScript modules export an object literal, a function, or a constructor.
+      <br><br><br>
+      12.What is a callback function? <br>
+      Ans. <br>A callback function is a function passed into another function as an argument. This function is invoked
+      inside the outer function to complete an action. <br>
+      Example 1: <br>
+
+      function callbackFunction(name) { <br>
+      console.log("Hello " + name); <br>
+      } <br>
+
+      function outerFunction(callback) { <br>
+      let name = prompt("Please enter your name."); <br>
+      callback(name); <br>
+      } <br>
+
+      outerFunction(callbackFunction); <br>
+
+      Example 2: <br> <br>
+      function divideByHalf(sum){ <br>
+      console.log(Math.floor(sum / 2)); <br>
+      } <br>
+
+      function multiplyBy2(sum){ <br>
+      console.log(sum * 2); <br>
+      } <br>
+
+      function operationOnSum(num1,num2,operation){ <br>
+      var sum = num1 + num2; <br>
+      operation(sum); <br>
+      } <br>
+
+      operationOnSum(3, 3, divideByHalf); // Outputs 3 <br>
+
+      operationOnSum(5, 5, multiplyBy2); // Outputs 20 <br><br><br>
+
+      13.Why do you need a promise? <br>
+      Ans. <br>Promises are used to handle asynchronous operations. They provide an alternative approach for callbacks
+      by reducing the callback hell and writing the cleaner code. <br><br><br>
+
+      14.What are the three states of promise?<br>
+      Ans. Promises have three states: <br>
+
+      (a)Pending: This is an initial state of the Promise before an operation begins <br>
+      (b)Fulfilled: This state indicates that the specified operation was completed or resolved. "resolve" keyword is
+      used here. <br>
+      (c)Rejected: This state indicates that the operation did not complete. In this case an error value will be
+      thrown.The promise gets rejected. "reject" keyword is used here. <br><br>
+
+      15.What is eval?<br>
+      Ans.The eval() function evaluates JavaScript code represented as a string. The string can be a JavaScript
+      expression, variable, statement, or sequence of statements. <br>
+      console.log(eval("1 + 2")); // 3 <br><br>
+
+      16.What is event bubbling?<br>
+      Ans.Event Bubbling is a concept in the DOM (Document Object Model). It happens when an element receives an event,
+      and that event bubbles up (or you can say is transmitted or propagated) to its parent and ancestor elements in the
+      DOM tree until it gets to the root element. <br><br>
+
+      17.What are the types of errors in javascript?<br>
+      Ans.There are two types of errors in javascript. <br><br>
+
+      Syntax error: Syntax errors are mistakes or spelling problems in the code that cause the program to not execute at
+      all or to stop running halfway through. Error messages are usually supplied as well. <br>
+      Logical error: Reasoning mistakes occur when the syntax is proper but the logic or program is incorrect. The
+      application executes without problems in this case. However, the output findings are inaccurate. These are
+      sometimes more difficult to correct than syntax issues since these applications do not display error signals for
+      logic faults. <br><br>
+
+      18.What is DOM?<br>
+      Ans.DOM stands for Document Object Model. DOM is a programming interface for HTML and XML documents.
+      When the browser tries to render an HTML document, it creates an object model based on the HTML document called
+      DOM. Using this DOM, we can manipulate or change various elements inside the HTML document. <br><br><br>
+
+      19.What is JSON and its common operations?
+      Ans.JSON(JavaScript Object Notation) is a text-based data format following JavaScript object syntax, which was
+      popularized by Douglas Crockford. It is useful when you want to transmit data across a network in web applications
+      (e.g., sending some data from the server to the client, so it can be displayed on a web page, or vice versa)and it
+      is basically just a text file with an extension of .json, and a MIME type of application/json. JSON is easy to
+      read and write. <br>
+
+      Parsing: Converting a string to a native object <br>
+
+      JSON.parse(text); <br>
+      Stringification: converting a native object to a string so it can be transmitted across the network <br>
+
+      JSON.stringify(object); <br><br>
+
+      20.What is the Temporal Dead Zone?<br>
+      Ans. <br>The Temporal Dead Zone is a behavior in JavaScript that occurs when declaring a variable with the let and
+      const keywords, but not with var. In ECMAScript 6, accessing a let or const variable before its declaration
+      (within its scope) causes a ReferenceError. The area, between accessing the variable and its declaration, is
+      called the temporal dead zone. Because even if the variable is declared and intialized but because of hoisting JS
+      is unable to access the value in it. So it will give ReferenceError as it is not initialized. <br>
+
+      Example: <br>
+
+      function somemethod() { <br>
+      console.log(counter1); // undefined <br>
+      console.log(counter2); // ReferenceError <br>
+      var counter1 = 1; <br>
+      let counter2 = 2; <br>
+      } <br><br><br>
+
+      21.What is a Cookie? <br>
+      Ans. A cookie is a piece of data that is stored on your computer to be accessed by your browser.When a user visits
+      a web page, his/her name can be stored in a cookie.
+      Next time the user visits the page, the cookie "remembers" his/her name. Cookies are saved as key/value pairs. For
+      example,<br>
+
+      document.cookie = "username=Dubo; expires=Wed, 31 December 2030 12:00:00 UTC; path=/";<br><br><br>
+
+      22.What is the main difference between localStorage and sessionStorage? <br>
+      Ans. LocalStorage is the same as SessionStorage but it persists the data even when the browser is closed and
+      reopened(i.e it has no expiration time) whereas in sessionStorage data gets cleared when the page session ends.
+      <br><br><br>
+
+      23.What is a callback hell?<br>
+      Ans.Callback Hell is an anti-pattern with multiple nested callbacks forming a pyramid structure which makes code
+      hard to read, execute and debug when dealing with asynchronous logic. Callback hell can be avoided using promises
+      and async-await methods. The callback hell looks like below,<br>
+      <br>
+      async1(function(){<br>
+      async2(function(){<br>
+      async3(function(){<br>
+      async4(function(){<br>
+      ....<br>
+      });<br>
+      });<br>
+      });<br>
+      });<br><br><br>
+
+      24.What is promise chaining?<br>
+      Ans.The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise
+      chaining. Example: <br>
+
+      new Promise(function (resolve, reject) { <br>
+      setTimeout(() => resolve(1), 1000); <br>
+      }) <br>
+      .then(function (result) { <br>
+      console.log(result); // 1 <br>
+      return result * 2; <br>
+      }) <br>
+      .then(function (result) { <br>
+      console.log(result); // 2 <br>
+      return result * 3; <br>
+      }) <br>
+      .then(function (result) { <br>
+      console.log(result); // 6 <br>
+      return result * 4; <br>
+      }); <br><br><br>
+
+      25.What is null value?<br>
+      Ans.The value null represents the intentional absence of any object value. It is one of JavaScript's primitive
+      values. The type of null value is object. You can empty the variable by setting the value to null. <br>
+
+      var user = null;<br>
+      console.log(typeof user); //object <br><br>
+
+      26.What is event capturing?<br>
+      Ans.Event capturing is a type of event propagation where the event is first captured by the outermost element, and
+      then successively triggers on the descendants (children) of the target element in the same nesting hierarchy till
+      it reaches the innermost DOM element. <br><br><br>
+
+      27.What is event bubbling?<br>
+      Ans.Event bubbling is a type of event propagation where the event first triggers on the innermost target element,
+      and then successively triggers on the ancestors (parents) of the target element in the same nesting hierarchy till
+      it reaches the outermost DOM element. <br><br><br>
+
+      28.Is JavaScript a compiled or interpreted language?<br>
+      Ans.JavaScript is an interpreted language, not a compiled language. An interpreter in the browser reads over the
+      JavaScript code, interprets each line, and runs it. Nowadays modern browsers use a technology known as
+      Just-In-Time (JIT) compilation, which compiles JavaScript to executable bytecode just as it is about to run.
+      <br><br><br>
+
+      29.Is JavaScript a case-sensitive language?<br>
+      Ans.Yes, JavaScript is a case sensitive language. The language keywords, variables, function & object names, and
+      any other identifiers must always be typed with a consistent capitalization of letters. <br><br><br>
+
+      30.What is the use of preventDefault method?<br>
+      Ans.The preventDefault() method cancels the event if it is cancelable, meaning that the default action or
+      behaviour that belongs to the event will not occur. For example, prevent form submission when clicking on submit
+      button and prevent opening the page URL when clicking on hyperlink are some common use cases. <br>
+      But not all events are cancelable. <br><br>
+      document <br>
+      .getElementById("link") <br>
+      .addEventListener("click", function (event) { <br>
+      event.preventDefault(); <br>
+      });<br><br><br>
+
+      31.What is the use of setTimeout?<br>
+      Ans.The setTimeout() method is used to call a function or evaluate an expression after a specified number of
+      milliseconds. This will call the function once. Example: <br>
+
+      setTimeout(function () { <br>
+      console.log("Good morning"); <br>
+      }, 2000);<br><br><br>
+
+      32.What is the use of setInterval?<br>
+      Ans.The setInterval() method is used to call a function or evaluate an expression at specified intervals (in
+      milliseconds). This will call the function infinite times until it gets stopped manually. Example: <br>
+
+      setInterval(function () { <br>
+      console.log("Good morning"); <br>
+      }, 2000);<br><br><br>
+
+      33.What do you mean by BOM?<br>
+      Ans.Browser Object Model is known as BOM. It allows users to interact with the browser. A browser's initial object
+      is a window. As a result, you may call all of the window's functions directly or by referencing the window. The
+      document, history, screen, navigator, location, and other attributes are available in the window object.
+      <br><br><br>
+
+      34.What are modifiers in regular expression?<br>
+      Ans.Modifiers can be used to perform case-insensitive and global searches. Some of the modifiers are, <br>
+
+      i - Perform case-insensitive matching <br>
+      g - Perform a global match rather than stops at first match <br>
+      m - Perform multiline matching <br><br>
+      Example of global modifier: <br>
+      
+      var text = "Learn JS one by one"; <br>
+      var pattern = /one/g; <br>
+      var result = text.match(pattern); // one,one<br><br>
+
+      35.How do you get the image width and height using JS? <br>
+      Ans. You can programmatically get the image and check the dimensions(width and height) using Javascript. <br>
+      
+      var img = new Image(); <br>
+      img.onload = function () { <br>
+        console.log(this.width + "x" + this.height); <br>
+      }; <br>
+      img.src = "http://www.google.com/intl/en_ALL/images/logo.gif";<br><br><br>
+
+      36.What would be the result of 1+2+'3'? <br>
+      Ans. The output is going to be 33. Since 1 and 2 are numeric values, the result of the first two digits is going to be a numeric value 3. The next digit is a string type value because of that the addition of numeric value 3 and string type value 3 is just going to be a concatenation value 33 and its type will be string. So num+string=string <br><br><br>
+
+      37.How do you change the style of a HTML element? <br>
+      Ans. You can change inline style or classname of a HTML element using javascript <br>
+      
+      Using style property: You can modify inline style using style property <br>
+      document.getElementById("title").style.fontSize = "30px"; <br>
+      Using ClassName property: It is easy to modify element class using className property <br>
+      document.getElementById("title").className = "custom-title";<br><br><br>
+
+      38.How do you convert date to another timezone in javascript?<br>
+      You can use the toLocaleString() method to convert dates in one timezone to another. For example, let's convert current date to British English timezone <br>
+      
+      console.log(cde.toLocaleString("en-GB", { timeZone: "UTC" })); <br><br><br>
+
+      39.What is a freeze method?<br>
+      Ans. The freeze() method is used to freeze an object. Freezing an object does not allow adding new properties to an object,prevents from removing and prevents changing the enumerability, configurability, or writability of existing properties. <br>
+      
+      const obj = { <br>
+        prop: 100, <br>
+      }; <br><br>
+      
+      Object.freeze(obj); <br>
+      obj.prop = 200; // Throws an error in strict mode <br><br>
+      
+      console.log(obj.prop); //100 <br>
+      Freezing is only applied to the top-level properties in objects but not for nested objects(objects within main object). For example, let's try to freeze user object which has employment details as nested object and observe that details have been changed. <br><br>
+      
+      const user = { <br>
+        name: "John", <br>
+        employment: { <br>
+          department: "IT", <br>
+        }, <br>
+      }; <br>
+      
+      Object.freeze(user); <br>
+      user.employment.department = "HR"; <br><br><br>
+
+      40.What are various operators supported by javascript? <br>
+      Ans.An operator is capable of manipulating(mathematical and logical computations) a certain value or operand. Operators of JS are as below <br>
+
+      
+      (a)Arithmetic Operators: Includes + (Addition),– (Subtraction), * (Multiplication), / (Division), % (Modulus), + + (Increment) and – – (Decrement) <br>
+
+      (b)Comparison Operators: Includes = =(Equal),!= (Not Equal), ===(Equal with type), > (Greater than),> = (Greater than or Equal to),< (Less than),<= (Less than or Equal to) <br>
+
+      (c)Logical Operators: Includes &&(Logical AND),||(Logical OR),!(Logical NOT) <br>
+
+      (d)Assignment Operators: Includes = (Assignment Operator), += (Add and Assignment Operator), – = (Subtract and Assignment Operator), *= (Multiply and Assignment), /= (Divide and Assignment), %= (Modules and Assignment) <br>
+
+      (e)Ternary Operators: It includes conditional(: ?) Operator <br>
+
+      (f)typeof Operator: It uses to find type of variable. The syntax looks like typeof variable <br><br><br>
+
+      41.What is a spread operator? <br>
+      Ans.Spread operator allows iterables( arrays / objects / strings ) to be expanded into single arguments/elements. Example - <br>
+      
+      function calculateSum(x, y, z) { <br>
+        return x + y + z; <br>
+      } <br>
+      
+      const numbers = [1, 2, 3]; <br>
+      
+      console.log(calculateSum(...numbers)); // 6 <br><br><br>
+
+      42.What is a rest parameter? <br>
+      Ans. Rest parameter is an improved way to handle function parameters which allows us to represent an indefinite number of arguments as an array. Example - <br> <br>
+      function sum(...theArgs) { <br>
+        let total = 0; <br>
+        for (let v of theArgs) { <br>
+          total += v; <br>
+        } <br>
+        return total; <br>
+      } <br>
+      
+      console.log(sum(1, 2, 3)); <br>
+      // Expected output: 6 <br>
+      
+      console.log(sum(1, 2, 3, 4)); <br>
+      // Expected output: 10 <br> <br><br>
+
+      43.How can you get the list of keys of any object?<br>
+      Ans.You can use the Object.keys() method which is used to return an array of a given object's own property names, in the same order as we get with a normal loop. For example, you can get the keys of a user object, <br>
+      
+      const cust = {<br>
+        name: "Moxis",<br>
+        gender: "male",<br>
+        age: 40,<br>
+      };<br>
+      
+      console.log(Object.keys(cust)); //['name', 'gender', 'age'] <br><br><br>
+
+      44.What is an anonymous function?
+      Ans. An anonymous function is a function without a name! Anonymous functions are commonly assigned to a variable name or used as a callback function. Syntax - 
+      
+      function (optionalParameters) { <br>
+        //......... <br>
+      } <br>
+      
+      const myFunction = function(){ //Anonymous function assigned to a variable <br>
+        //.......... <br>
+      }; <br>
+      
+      
+      Example: <br>
+      
+      var x = function (a, b) { <br>
+        return a * b; <br>
+      }; <br>
+      var z = x(4,18); <br>
+      console.log(z); // 72 <br><br><br>
+
+      45.When you get a syntax error? <br>
+      Ans. A SyntaxError is thrown if you try to evaluate code with a syntax error. Example: <br>
+      
+      try { <br>
+        eval("greeting('welcome)"); // Missing ' will produce an error <br>
+      } catch (err) { <br>
+        console.log(err.name); <br>
+      } <br><br><br>
+
+      46.What is an event loop? <br>
+      Ans. The event loop is a process that continuously monitors both the call stack and the event queue and checks whether or not the call stack is empty. If the call stack is empty and there are pending events in the event queue, the event loop dequeues the event from the event queue and pushes it to the call stack. The call stack executes the event, and any additional events generated during the execution are added to the end of the event queue. <br>
+      
+      Note: The event loop allows Node.js to perform non-blocking I/O operations, even though JavaScript is single-threaded, by offloading operations to the system kernel whenever possible. Since most modern kernels are multi-threaded, they can handle multiple operations executing in the background. <br><br><br>
+
+      47.What is call stack? <br>
+      Ans. Call Stack is a data structure for javascript interpreters to keep track of function calls(creates execution context) in the program. It has two major actions, <br><br>
+      
+      (a)Whenever you call a function for its execution, you are pushing it to the stack. <br>
+      (b)Whenever the execution is completed, the function is popped out of the stack. <br>
+      Example : <br>
+      
+      function hungry() { <br>
+        eat(); <br>
+      } <br>
+      function eat() { <br>
+        return "I'm eating snacks and biscuits"; <br>
+      } <br>
+      
+      // Invoke the `hungry` function <br>
+      hungry(); <br>
+      The above code processed in a call stack as below, <br>
+      
+      > Add the hungry() function to the call stack list and execute the code. <br>
+      > Add the eat() function to the call stack list and execute the code. <br>
+      > Delete the eat() function from our call stack list. <br>
+      > Delete the hungry() function from the call stack list since there are no items anymore. <br><br><br>
+
+      48.What happens if you write constructor more than once in a class?<br>
+      Ans. The "constructor" in a class is a special method and it should be defined only once in a class. i.e, If you write a constructor method more than once in a class it will throw a SyntaxError error. <br><br><br>
+
+      49.How do you call the constructor of a parent class?<br>
+      Ans. You can use the super keyword to call the constructor of a parent class. Remember that super() must be called before using 'this' reference. Otherwise it will cause a reference error. Let's the usage of it, <br>
+      
+      class Square extends Rectangle { <br>
+        constructor(length) { <br>
+          super(length, length); <br>
+          this.name = "Square"; <br>
+        } <br>
+      
+        get area() { <br>
+          return this.width * this.height; <br>
+        } <br>
+      
+        set area(value) { <br>
+          this.area = value; <br>
+        } <br>
+      } <br><br>
+      <br>
+      50.How do you check whether an array includes a particular value or not?<br>
+      Ans. The Array#includes() method is used to determine whether an array includes a particular value among its entries by returning either true or false. Let's see an example to find an element(numeric and string) within an array. <br>
+      
+      var numericArray = [1, 2, 3, 4]; <br>
+      console.log(numericArray.includes(3)); // true <br>
+      
+      var stringArray = ["green", "yellow", "blue"]; <br>
+      console.log(stringArray.includes("blue")); //true <br><br><br>
+
+      51.What are the different methods to find HTML elements in DOM? <br>
+      Ans.If you want to access any element in an HTML page, you need to start with accessing the document object. Methods to find the HTML element are,<br>
+      
+      document.getElementById('id'): It finds an element by Id <br>
+      document.getElementsByTagName('name'): It finds an element by tag name <br>
+      document.getElementsByClassName('name'): It finds an element by class name <br><br><br>
+
+      52.Why do we call javascript as dynamic language?<br>
+      Ans.JavaScript is a loosely typed or a dynamic language because variables in JavaScript are not directly associated with any particular value type, and any variable can be assigned/reassigned with values of all types. Example: <br>
+      
+      let age = 50; // age is a number now <br>
+      age = "old"; // age is a string now <br>
+      age = true; // age is a boolean <br><br><br>
+
+      53.What is jQuery? <br>
+      Ans.jQuery is a popular cross-browser JavaScript library that provides Document Object Model (DOM) traversal, event handling, animations and AJAX interactions by minimizing the discrepancies across browsers. It is widely famous with its philosophy of “Write less, do more”. <br><br><br>
+
+      54.List down some of the features of ES6? <br>
+      Ans.Some new features of ES6 are, <br>
+      
+      (a) Support for constants or immutable variables <br>
+      (b) Block-scope support for variables, constants and functions <br>
+      (c) Arrow functions <br>
+      (d) Default parameters <br>
+      (e) Rest and Spread Parameters <br>
+      (f) Template Literals <br>
+      (g) Multi-line Strings <br>
+      (h) Destructuring Assignment <br>
+      (i) Enhanced Object Literals <br>
+      (j) Promises <br>
+      (k) Classes <br>
+      (l) Modules <br><br><br>
+
+      55.What is ES6? <br>
+      Ans.ES6 is the sixth edition of the javascript language and it was released in June 2015. It was initially known as ECMAScript 6 (ES6) and later renamed to ECMAScript 2015. Almost all the modern browsers support ES6 but for the old browsers there are many transpilers, like Babel.js etc. <br><br><br>
+
+      56.Can you redeclare let and const variables? <br>
+      Ans.No, you cannot redeclare let and const variables. If you do, it throws below error - <br>
+      
+      Uncaught SyntaxError: Identifier 'someVariable' has already been declared <br><br><br>
+
+      57.What are default parameters?<br>
+      Ans.In ES6, Default function parameters feature allows parameters to be initialized with default values if no value or undefined is passed. <br><br>
+
+      var calculateArea = function (height = 50, width = 60) { <br>
+        return width * height; <br>
+      }; <br>
+      
+      console.log(calculateArea()); //300 <br><br><br>
+      
+      58.What are template literals?<br>
+      Ans.Template literals or template strings are string literals allowing embedded expressions. These are enclosed by the back-tick (`) character instead of double or single quotes. In ES6, this feature enables using dynamic expressions as below, <br>
+      
+      var greeting = `Welcome to JS World, Mr. ${firstName} ${lastName}.`; <br><br><br>
+
+      59.How do you write multi-line strings in template literals? <br>
+      Ans.In ES5, you would have to use newline escape characters('\n') and concatenation symbols(+) in order to get multi-line strings. <br>
+      
+      console.log("This is string sentence 1\n" + "This is string sentence 2"); <br>
+      Whereas in ES6, You don't need to mention any newline sequence character, <br>
+      
+      console.log(`This is string sentence <br>
+      'This is string sentence 2`); <br><br><br>
+
+      60.What is destructuring assignment? <br>
+      Ans.The destructuring assignment is a JavaScript expression that makes it possible to unpack values from arrays or properties from objects into distinct variables. Let's get the month values from an array using destructuring assignment <br>
+      
+      var [one, two, three] = ["JAN", "FEB", "MARCH"]; <br>
+      
+      console.log(one); // "JAN" <br>
+      console.log(two); // "FEB" <br>
+      console.log(three); // "MARCH" <br>
+      and you can get user properties of an object using destructuring assignment, <br>
+      
+      var { name, age } = { name: "John", age: 32 }; <br>
+      
+      console.log(name); // John <br><br><br>
+
+      61.How do you swap variables in destructuring assignment? <br>
+      Ans.If you don't use destructuring assignment, swapping two values requires a temporary variable. Whereas using a destructuring feature, two variable values can be swapped in one destructuring expression. Let's swap two number variables in array destructuring assignment, <br>
+      
+      var x = 10, <br>
+        y = 20; <br>
+      
+      [x, y] = [y, x]; <br>
+      console.log(x); // 20 <br>
+      console.log(y); // 10 <br><br><br>
+
+      62.What is for...of statement? <br>
+      Ans.The for...of statement creates a loop iterating over iterable objects or elements such as built-in String, Array, Array-like objects (like arguments or NodeList), TypedArray, Map, Set, and user-defined iterables. The basic usage of for...of statement on arrays would be as below, <br> <br><br>
+      
+      let arrayIterable = [10, 20, 30, 40, 50]; <br> <br>
+      
+      for (let value of arrayIterable) { <br> <br>
+        value++; <br> <br>
+        console.log(value); // 11 21 31 41 51 <br> <br>
+      } <br><br><br>
+
+      63.What is the output of below spread operator array? <br>
+      Ans.[..."John Resig"]; <br>
+      The output of the array is ['J', 'o', 'h', 'n', '', 'R', 'e', 's', 'i', 'g'] Explanation: The string is an iterable type and the spread operator within an array maps every character of an iterable to one element. Hence, each character of a string becomes an element within an Array. <br><br><br>
+
+      64.What is the difference between internal and external javascript? <br>
+      Ans.Internal JavaScript: It is the source code within the script tag. External JavaScript: The source code is stored in an external file(stored with .js extension) and referred with in the tag. <br><br><br>
+
+      65.Is JavaScript faster than server side script? <br>
+      Ans.Yes, JavaScript is faster than server side scripts. Because JavaScript is a client-side script it does not require any web server’s help for its computation or calculation. So JavaScript is always faster than any server-side script like ASP, PHP, etc. <br><br><br>
+
+      66.How do you get the status of a checkbox? <br>
+      Ans.You can apply the checked property on the selected checkbox in the DOM. If the value is true it means the checkbox is checked, otherwise it is unchecked. For example, the below HTML checkbox element can be access using javascript as below: <br>
+      
+      <!-- <input type="checkbox" id="checkboxname" value="Agree" /> Agree the
+      conditions<br /> --> <br>
+      console.log(document.getElementById(‘checkboxname’).checked); // true or false <br><br><br>
+
+      67.What is the purpose of some method in arrays?<br>
+      Ans.The some() method is used to test whether at least one element in the array passes the test implemented by the provided function. The method returns a boolean value. Let's take an example to test for any odd elements, <br>
+      
+      var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; <br>
+      
+      var odd = (element) => element % 2 !== 0; <br>
+      
+      console.log(array.some(odd)); // true (the odd element exists) <br><br><br>
+
+      68.How do you trim a string at the beginning or ending?<br>
+      Ans.The trim method of string prototype is used to trim on both sides of a string. But if you want to trim especially at the beginning or ending of the string then you can use trimStart/trimLeft and trimEnd/trimRight methods. Let's see an example of these methods on a greeting message, <br>
+      
+      var greeting = "   Hello, Goodmorning!   "; <br>
+      
+      console.log(greeting); // "   Hello, Goodmorning!   " <br>
+      console.log(greeting.trimStart()); // "Hello, Goodmorning!   " <br>
+      console.log(greeting.trimLeft()); // "Hello, Goodmorning!   " <br>
+      
+      console.log(greeting.trimEnd()); // "   Hello, Goodmorning!" <br>
+      console.log(greeting.trimRight()); // "   Hello, Goodmorning!" <br><br><br>
+
+      69.What is the output of below function calls?<br>
+      Ans.Code snippet: <br>
+      
+      const circle = { <br>
+        radius: 20, <br>
+        diameter() { <br>
+          return this.radius * 2; <br>
+        }, <br>
+        perimeter: () => 2 * Math.PI * this.radius, <br>
+      }; <br>
+      console.log(circle.diameter()); <br>
+      console.log(circle.perimeter()); <br>
+      Output: <br>
+      
+      The output is 40 and NaN. Remember that diameter is a regular function, whereas the value of perimeter is an arrow function. The this keyword of a regular function(i.e, diameter) refers to the surrounding scope which is a class(i.e, Shape object). Whereas this keyword of perimeter function refers to the surrounding scope which is a window object. Since there is no radius property on window objects it returns an undefined value and the multiple of number value returns NaN value. <br><br><br>
+
+      70.How do you empty an array?<br>
+      Ans.You can empty an array quickly by setting the array length to zero. <br>
+      
+      let cities = ["Singapore", "Delhi", "London"]; <br>
+      cities.length = 0; // cities becomes [] <br><br><br>
+
+      71.What is the easiest way to convert an array to an object?<br>
+      Ans.You can convert an array to an object with the same data using spread(...) operator. <br>
+      
+      var fruits = ["banana", "apple", "orange", "watermelon"]; <br>
+      var fruitsObject = { ...fruits }; <br>
+      console.log(fruitsObject); // {0: "banana", 1: "apple", 2: "orange", 3: "watermelon"} <br><br><br>
+
+      72.How do you create an array with some data?<br>
+      Ans.You can create an array with some data or an array with the same values using fill method. <br>
+      
+      var newArray = new Array(5).fill("0"); <br>
+      console.log(newArray); // ["0", "0", "0", "0", "0"] <br><br><br>
+
+      73.Is it possible to debug HTML elements in console?<br>
+      Ans.Yes, it is possible to get and debug HTML elements in the console just like inspecting elements. <br>
+      
+      const element = document.getElementsByTagName("body")[0]; <br>
+      console.log(element); <br>
+      It prints the HTML element in the console, <br><br><br>
+
+      74.How do you display data in a tabular format using console object?<br>
+      Ans.The console.table() is used to display data in the console in a tabular format to visualize complex arrays or objects. <br>
+      
+      const users = [ <br>
+        { name: "John", id: 1, city: "Delhi" }, <br>
+        { name: "Max", id: 2, city: "London" }, <br>
+        { name: "Rod", id: 3, city: "Paris" }, <br>
+      ]; <br>
+      console.table(users); <br><br><br>
+
+      75.How do you create copy to clipboard button?<br>
+      Ans.You need to select the content(using .select() method) of the input element and execute the copy command with execCommand (i.e, execCommand('copy')). You can also execute other system commands like cut and paste. <br>
+      
+      document.querySelector("#copy-button").onclick = function () { <br>
+        // Select the content <br>
+        document.querySelector("#copy-input").select(); <br>
+        // Copy to the clipboard <br>
+        document.execCommand("copy"); <br>
+      };<br><br><br>
+
+      76.What is the shortcut to get timestamp?<br>
+      Ans.You can use new Date().getTime() to get the current timestamp. There is an alternative shortcut to get the value. <br>
+      
+      console.log(+new Date()); <br>
+      console.log(Date.now());<br><br><br>
+
+      77.What is AJAX?<br>
+      Ans.AJAX stands for Asynchronous JavaScript and XML and it is a group of related technologies(HTML, CSS, JavaScript, XMLHttpRequest API etc) used to display data asynchronously. i.e. We can send data to the server and get data from the server without reloading the web page. <br><br><br>
+
+      78.What are the different ways to deal with Asynchronous Code?<br>
+      Ans.Below are the list of different ways to deal with Asynchronous code. <br>
+      
+      Callbacks <br>
+      Promises <br>
+      Async/await <br><br><br>
+
+      79.What is web speech API?<br>
+      Ans.Web speech API is used to enable modern browsers recognize and synthesize speech(i.e, voice data into web apps). This API has been introduced by W3C Community in the year 2012. It has two main parts, <br>
+      
+      SpeechRecognition (Asynchronous Speech Recognition or Speech-to-Text): It provides the ability to recognize voice context from an audio input and respond accordingly. This is accessed by the SpeechRecognition interface. The below example shows on how to use this API to get text from speech, <br>
+      window.SpeechRecognition =
+        window.webkitSpeechRecognition || window.SpeechRecognition; // webkitSpeechRecognition for Chrome and SpeechRecognition for FF <br>
+      const recognition = new window.SpeechRecognition(); <br>
+      recognition.onresult = (event) => { <br>
+        // SpeechRecognitionEvent type <br>
+        const speechToText = event.results[0][0].transcript; <br>
+        console.log(speechToText); <br>
+      }; <br>
+      recognition.start(); <br>
+      In this API, browser is going to ask you for permission to use your microphone <br>
+      
+      SpeechSynthesis (Text-to-Speech): It provides the ability to recognize voice context from an audio input and respond. This is accessed by the SpeechSynthesis interface. For example, the below code is used to get voice/speech from text, <br>
+      if ("speechSynthesis" in window) { <br>
+        var speech = new SpeechSynthesisUtterance("Hello World!"); <br>
+        speech.lang = "en-US"; <br>
+        window.speechSynthesis.speak(speech); <br>
+      } <br>
+      The above examples can be tested on chrome(33+) browser's developer console. Note: This API is still a working draft and only available in Chrome and Firefox browsers(ofcourse Chrome only implemented the specification) <br><br><br>
+
+      80.What is the easiest way to resize an array?<br>
+      Ans.The length property of an array is useful to resize or empty an array quickly. Let's apply length property on number array to resize the number of elements from 5 to 2, <br>
+      
+      var array = [1, 2, 3, 4, 5]; <br>
+      console.log(array.length); // 5 <br>
+       <br>
+      array.length = 2; <br>
+      console.log(array.length); // 2 <br>
+      console.log(array); // [1,2] <br>
+      and the array can be emptied too <br>
+      
+      var array = [1, 2, 3, 4, 5]; <br>
+      array.length = 0; <br>
+      console.log(array.length); // 0 <br>
+      console.log(array); // [] <br><br><br>
+
+      81.What is the difference between isNaN and Number.isNaN? <br>
+      isNaN: The global function isNaN converts the argument to a Number and returns true if the resulting value is NaN. <br>
+      Number.isNaN: This method does not convert the argument. But it returns true when the type is a Number and value is NaN. <br>
+      Let's see the difference with an example, <br>
+      
+      isNaN('hello');   // true <br>
+      Number.isNaN('hello'); // false <br><br><br>
+
+      82.Write the code to find the vowels <br>
+      Ans.const findVowels = str => { <br>
+        let count = 0 <br>
+        const vowels = ['a', 'e', 'i', 'o', 'u'] <br>
+        for(let char of str.toLowerCase()) { <br>
+          if(vowels.includes(char)) { <br>
+            count++ <br>
+          } <br>
+        } <br>
+        return count <br>
+      } <br><br><br>
+
+      83. In JavaScript, how do you turn an Object into an Array []? <br>
+      Ans.let obj = { id: "1", name: "user22", age: "26", work: "programmer" }; <br>
+      
+      //Method 1: Convert the keys to Array using - Object.keys() <br>
+      console.log(Object.keys(obj)); <br>
+      // ["id", "name", "age", "work"] <br>
+      
+      // Method 2 Converts the Values to Array using - Object.values() <br>
+      console.log(Object.values(obj)); <br>
+      // ["1", "user22r", "26", "programmer"] <br>
+       <br>
+      // Method 3 Converts both keys and values using - Object.entries() <br>
+      console.log(Object.entries(obj)); <br>
+      //[["id", "1"],["name", "user22"],["age", "26"],["work", “programmer"] <br> <br>
+      <br>
+      
+      84.What is the output of the following code? <br>
+      Ans.const b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; <br>
+      
+      for (let i = 0; i < 10; i++) { <br>
+        setTimeout(() => console.log(b[i]), 1000); <br>
+      } <br>
+      
+      for (var i = 0; i < 10; i++) { <br>
+        setTimeout(() => console.log(b[i]), 1000); <br>
+      } <br>
+      Ans.  <br>
+      
+      1 <br>
+      2 <br>
+      3 <br>
+      4 <br>
+      5 <br>
+      6 <br>
+      7 <br>
+      8 <br>
+      9 <br>
+      10 <br>
+      undefined <br>
+      undefined <br>
+      undefined <br>
+      undefined <br>
+      undefined <br>
+      undefined <br>
+      undefined <br>
+      undefined <br>
+      undefined <br>
+      undefined <br>
+      <br>
+
+    </p>
+  </div>
+</body>
+
+<script>
+  //isNaN Property
+  console.log(isNaN("Hello"));
+  //Closures
+  function Welcome(name) {
+    var greetingInfo = function (message) {
+      console.log(message + " " + name);
+    };
+    return greetingInfo;
+  }
+  var myFunction = Welcome("Cena");
+  myFunction("Welcome John"); //Output: Welcome John Cena
+  myFunction("John"); //output: John Cena
+
+  var d=1
+  var e=2
+  var f='3'
+  console.log(d+e+f);
+  console.log(typeof(d+e+f));
+
+  var cde=new Date()
+  console.log(cde.toDateString());
+  console.log(cde.toTimeString());
+  console.log(cde.toLocaleString("en-GB", { timeZone: "UTC" }));
+  
+  console.log(NaN === NaN);
+</script>
+
+</html>
